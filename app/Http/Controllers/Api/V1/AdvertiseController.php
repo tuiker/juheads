@@ -17,6 +17,7 @@ class AdvertiseController extends Controller
             ->where('end_at', '>=', now())
             ->orderBy('sort', 'desc')
             ->simplePaginate(30);
+
         return Response::success(AdvertiseResource::collection($advertise));
     }
 }

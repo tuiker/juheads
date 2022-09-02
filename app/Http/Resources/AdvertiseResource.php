@@ -17,6 +17,8 @@ class AdvertiseResource extends JsonResource
         return [
             'id' => $this->id,
             'icon' => $this->icon,
+            'type' => $this->type,
+            'url' => $this->url,
             'location' => $this->location,
             'location_image' => $this->icon,
             'created_at' => $this->created_at,
