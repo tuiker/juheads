@@ -9,9 +9,14 @@ use Jiannei\Response\Laravel\Support\Facades\Response;
 
 class AdvertiseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $advertise = Advertise::paginate(30);
+        $advertise = Advertise::where('country_code', $request->header('Cf-Ipcountry'))
+            ->where('status', 1)
+            ->where('start_at', '<=', now())
+            ->where('end_at', '>=', now())
+            ->orderBy('sort', 'desc')
+            ->simplePaginate(30);
         return Response::success(AdvertiseResource::collection($advertise));
     }
 }
