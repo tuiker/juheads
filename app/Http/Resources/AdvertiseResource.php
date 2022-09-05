@@ -20,9 +20,9 @@ class AdvertiseResource extends JsonResource
             'type' => $this->type,
             'url' => $this->url,
             'location' => $this->location,
-            'location_image' => $this->icon,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'location_image' => $this->location_image,
+            'created_at' => (string)$this->created_at,
+            'updated_at' => (string)$this->updated_at,
         ];
     }
 }
